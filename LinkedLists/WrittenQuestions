@@ -1,0 +1,12 @@
+Q4. What is the difference between a Singly Linked List and a Circularly Linked List? 
+- The two are very similar, but in a Circularly Linked List there is no pointer to null at the end. Instead, the pointer points back to the head. This means there is no actual beginning and any node can be the starting point. 
+
+Q5. In what situations would you prefer a Linked List to an Array? 
+- When you do not need O(1) random access.
+- When you do not know how many items will be in the list - arrays have fixed size and would need to be resized i.e. redeclared and copied to a new array. 
+- When you do not need O(1) insertions and deletions.
+- If you want to be able to insert items in between two specified items. 
+
+Q6. Two possible use cases for a Circularly Linked List
+- Circularly Linked Lists are useful for the implementation of Queues, which are naturally circular and use a FIFO system. 
+- Another application could be to keep track of whose turn it is when developing a board game.
