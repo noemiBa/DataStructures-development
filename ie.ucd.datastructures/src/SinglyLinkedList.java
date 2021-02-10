@@ -3,6 +3,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 
+
 /**
  * A basic singly linked list implementation.
  * 
@@ -303,6 +304,22 @@ public class SinglyLinkedList<E> implements Cloneable, Iterable<E>, List<E>{
     	return null; 
     }
     
+    /* This method reverses a SinglyLinkedList with the help of a stack. 
+     * It does not create a new list. 
+     */
+    public void reverse() {
+    	LinkedStack<E> stack = new LinkedStack<E>(); 
+    	Node<E> currentNode = head; 
+    	while (currentNode!=null) {
+    		stack.push(currentNode.getElement());
+    		removeFirst();
+    		currentNode = currentNode.getNext();
+    	}
+    	
+    	while (!stack.isEmpty()) {
+    		addLast(stack.pop());
+    	}
+    }
 
     /*
 	 * Inner myIterator class
