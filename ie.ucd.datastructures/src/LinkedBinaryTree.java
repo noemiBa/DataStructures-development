@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 
+
 /**
  * Concrete implementation of a binary tree using a node-based, linked
  * structure.
@@ -315,6 +316,57 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
         //TO IMPLEMENT
     	return root; 
     }
+    
+    public int countExternalRecursive() {
+    	return countExternalRecursiveHelper(root);
+    }
+    
+    /*Method counts the total number of external nodes in a tree. 
+     * 
+     * @param node: the node to start counting from.
+     * @Return the integer count of external nodes
+     */
+    private int countExternalRecursiveHelper(Node<E> node) {
+    	int count = 0; 
+    	
+    	if (isEmpty()) { //if the tree is empty, there are no external nodes 
+    		count = 0; 
+    	}
+    	else if (node.getLeft() == null && node.getRight() == null) { //if the root has no children, the root itself in an external node
+    		count = 1; 
+    	}
+    	else {
+    		 count = countExternalRecursiveHelper(node.getLeft()) + countExternalRecursiveHelper(node.getRight()); //otherwise, count the external nodes on the left and on the right
+    	}
+    	
+    	return count; 
+    }
+    
+    public int countLeftExternal() {
+    	return countLeftExternalHelper(root);
+    }
+    	
+    /*Method counts the number of external nodes on the left side of the tree only. 
+     * 
+     * @param node: the node to start counting from.
+     * @Return the integer count of external nodes
+     */
+     private int countLeftExternalHelper(Node<E> node) {
+    	int count = 0; 
+    	
+    	if (isEmpty()) { //if the tree is empty, there are no external nodes 
+    		count = 0; 
+    	}
+    	else if (node.getLeft() == null) { //if the root has no left child, the root itself is a left external node
+    		count = 1; 
+    	}
+    	else {
+    		 count = countLeftExternalHelper(node.getLeft()); //otherwise, count the external nodes on the left and on the right
+    	}
+    	
+    	return count;
+    }
+
 
 
     /**
