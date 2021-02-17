@@ -79,10 +79,13 @@ public abstract class AbstractTree<E> implements Tree<E> {
     @Override
     public int size() {
     	int size = 0; 
+    	if (root() == null) {
+    		return size; 
+    	}
     	for (Position<E> child : children(root())) {
     		size++; 
     	}
-    	return size; 
+    	return size+1; 
     }
 
     /**
