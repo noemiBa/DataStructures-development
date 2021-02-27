@@ -304,6 +304,7 @@ public class SinglyLinkedList<E> implements Cloneable, Iterable<E>, List<E>{
     	return null; 
     }
     
+    
     /* This method reverses a SinglyLinkedList with the help of a stack. 
      * It does not create a new list. 
      */
