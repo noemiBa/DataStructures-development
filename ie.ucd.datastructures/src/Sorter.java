@@ -11,7 +11,6 @@ public class Sorter {
 				arr[i] = random.nextInt(); }
 			Timer t = new Timer(); 
 			Sorter.insertionSort(arr);
-			final long elapsedTime = System.currentTimeMillis();
 			System.out.println("" + n + "," + t.elapsedTime());
 			n = (int) (n * 1.5);
 		}
