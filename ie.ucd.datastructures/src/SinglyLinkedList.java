@@ -321,6 +321,21 @@ public class SinglyLinkedList<E> implements Cloneable, Iterable<E>, List<E>{
     		addLast(stack.pop());
     	}
     }
+    
+    /* This method copies a linked list recursively.
+     */
+    public SinglyLinkedList<E> copyRecursive(Node<E> head) {
+    	SinglyLinkedList<E> copy = new SinglyLinkedList<E>(); 
+    	
+    	if (head == null) {
+    		return copy; 
+    	}
+    	
+    	copy.addLast(head.getElement()); 
+    	copyRecursive(head.getNext()); 
+    	
+    	return copy; 
+    }
 
     /*
 	 * Inner myIterator class
